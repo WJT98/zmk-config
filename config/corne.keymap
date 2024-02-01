@@ -91,9 +91,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <80>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <0>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
@@ -103,9 +103,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <80>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <0>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
@@ -115,9 +115,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <80>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <0>;
+            require-prior-idle-ms = <50>;
             bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
@@ -126,9 +126,9 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <80>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <0>;
+            require-prior-idle-ms = <50>;
             bindings = <&mo>, <&kp>;
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
@@ -144,7 +144,7 @@
 &kp CAPS           &kp Q  &kp W  &kp E         &kp R                  &kp T    &kp Y          &kp U        &kp I      &kp O    &kp P          &kp TILDE
 &kp TAB  &hmll NUM A  &hmll RAISE S &hml LSHIFT D         &hml LCTRL F           &kp G    &hmrl RAISE H          &hmr LEFT_COMMAND J        &hmr RSHIFT K      &hmrl NUM L    &kp SEMICOLON  &kp SQT
 &mo 1             &kp Z  &kp X  &kp C         &kp V                  &kp B    &kp N          &kp M        &kp COMMA  &kp DOT  &kp FSLH       &kp LCTRL
-                                &kp LEFT_ALT  &kp ESCAPE  &kp ENTER    &kp BACKSPACE  &kp SPACE    &mo RAISE
+                                &kp LEFT_ALT  &mt LSHIFT ESCAPE  &kp ENTER    &kp BACKSPACE  &kp SPACE    &mo RAISE
             >;
         };
 
