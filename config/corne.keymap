@@ -11,9 +11,64 @@
 #define DEFAULT 0
 #define RAISE   1
 #define NUM     2
+#pragma once
+
+#define LT0  5  // left-top row
+#define LT1  4
+#define LT2  3
+#define LT3  2
+#define LT4  1
+#define LT5  0
+
+#define RT0  6  // right-top row
+#define RT1  7
+#define RT2  8
+#define RT3  9
+#define RT4 10
+#define RT5 11
+
+#define LM0 17  // left-middle row
+#define LM1 16
+#define LM2 15
+#define LM3 14
+#define LM4 13
+#define LM5 12
+
+#define RM0 18  // right-middle row
+#define RM1 19
+
+#define RM2 20
+#define RM3 21
+#define RM4 22
+#define RM5 23
+
+#define LB0 29  // left-bottom row
+#define LB1 28
+#define LB2 27
+#define LB3 26
+#define LB4 25
+#define LB5 24
+
+#define RB0 30  // right-bottom row
+#define RB1 31
+#define RB2 32
+#define RB3 33
+#define RB4 34
+#define RB5 35
+
+#define LH0 38  // left thumb keys
+#define LH1 37
+#define LH2 36
+
+#define RH0 39  // right thumb keys
+#define RH1 40
+#define RH2 41
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2 
 
 //visualize keymap at https://nickcoutsos.github.io/keymap-editor/
-
 &lt {
     flavor = "tap-preferred";
     tapping-term-ms = <200>;
@@ -32,10 +87,54 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
+        hml: hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+        
+        hmr: hold_tapr {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+        
+        hmrl: hold_taprl {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+        hmll: hold_tapll {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
     };
 
-    behaviors {
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -43,9 +142,9 @@
         default_layer {
             bindings = <
 &kp TAB           &kp Q  &kp W  &kp E         &kp R                  &kp T    &kp Y          &kp U        &kp I      &kp O    &kp P          &kp TILDE
-&kp LEFT_COMMAND  &kp A  &kp S  &kp D         &rpi LCTRL F           &kp G    &kp H          &kp J        &kp K      &kp L    &kp SEMICOLON  &kp SQT
+&kp TAB  &hmll NUM A  &kp S  &hml LSHIFT D         &hml LCTRL F           &kp G    &hmrl RAISE H          &hmr LEFT_COMMAND J        &hmr RSHIFT K      &hmrl NUM L    &kp SEMICOLON  &kp SQT
 &mo 1             &kp Z  &kp X  &kp C         &kp V                  &kp B    &kp N          &kp M        &kp COMMA  &kp DOT  &kp FSLH       &kp LCTRL
-                                &kp LEFT_ALT  &mt LEFT_SHIFT ESCAPE  &mo 2    &kp BACKSPACE  &lt 1 SPACE  &kp ENTER
+                                &kp LEFT_ALT  &kp ESCAPE  &kp ENTER    &kp SPACE  &kp BACKSPACE  &mo RAISE
             >;
         };
 
@@ -60,9 +159,9 @@
 
         num_layer {
             bindings = <
-&trans     &kp EXCLAMATION  &kp AT_SIGN       &kp HASH              &kp DOLLAR             &kp PERCENT          &kp ASTERISK  &kp N7        &kp N8          &kp N9        &kp NON_US_BACKSLASH  &trans
-&kp CARET  &kp PIPE         &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET    &kp MINUS     &kp NUMBER_4  &kp N5          &kp NUMBER_6  &kp EQUAL             &trans
-&trans     &kp LESS_THAN    &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AMPERSAND        &kp PLUS      &kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &kp GRAVE             &trans
+&kp AMPERSAND     &kp EXCLAMATION  &kp AT_SIGN       &kp LESS_THAN              &kp GREATER_THAN               &kp HASH          &kp ASTERISK  &kp N7        &kp N8          &kp N9        &kp NON_US_BACKSLASH  &trans
+&kp CARET  &kp PIPE         &kp LEFT_BRACKET  &kp LEFT_PARENTHESIS  &kp LEFT_BRACE &kp UNDERSCORE &kp MINUS     &kp NUMBER_4  &kp N5          &kp NUMBER_6  &kp EQUAL             &trans
+&kp PERCENT     &kp DOLLAR    &kp RIGHT_BRACKET &kp RIGHT_BRACKET            &kp RIGHT_BRACE        &kp MINUS        &kp PLUS      &kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &kp GRAVE             &trans
                                               &kp N0                &kp DOT                &none                &kp BSPC      &kp NUMBER_0  &kp UNDERSCORE
             >;
         };
