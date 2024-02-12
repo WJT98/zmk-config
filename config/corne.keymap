@@ -63,7 +63,7 @@
 //visualize keymap at https://nickcoutsos.github.io/keymap-editor/
 
 &lt {
-    flavor = "tap-preferred";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <0>;
     require-prior-idle-ms = <125>;
@@ -144,6 +144,16 @@
             require-prior-idle-ms = <100>;
             quick-tap-ms = <50>;
         };
+        shiftesc: shiftesc {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            require-prior-idle-ms = <100>;
+            quick-tap-ms = <50>;
+        };
     };
 
     behaviors {
@@ -168,7 +178,7 @@
 &kp SQT  &kp Q  &kp W  &kp E         &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P               &kp TILDE
 &mo 1    &kp A  &kp S  &kp D         &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &mt LGUI SEMICOLON  &kp SQT
 &mo 3    &kp Z  &kp X  &kp C         &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH            &kp LEFT_SHIFT
-                       &kp LEFT_ALT  &lt 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
+                       &kp LEFT_ALT  &shiftesc 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
             >;
         };
 
