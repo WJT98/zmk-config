@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
@@ -87,7 +88,7 @@
             flavor = "balanced";
             tapping-term-ms = <180>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <100>;
+            require-prior-idle-ms = <80>;
             bindings = <&kp>, <&kp>;
 
             hold-trigger-key-positions = <KEYS_L THUMBS>;
@@ -160,7 +161,75 @@
     behaviors {
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        lb {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <19 15>;
+            layers = <0>;
+        };
+
+        lp {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <19 16>;
+        };
+
+        lbrac {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <14 19>;
+            layers = <0>;
+        };
+
+        rp {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 20>;
+            layers = <0>;
+        };
+
+        rb {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <15 20>;
+            layers = <0>;
+        };
+
+        rbr {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <14 20>;
+            layers = <0>;
+        };
+
+        dquote {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <19 20>;
+            layers = <0>;
+        };
+
+        under {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <7 8>;
+            require-prior-idle-ms = <0>;
+            layers = <0>;
+        };
+
+        hyp {
+            bindings = <&kp MINUS>;
+            key-positions = <4 3>;
+            layers = <0>;
+        };
+
+        quote {
+            bindings = <&kp SQT>;
+            key-positions = <15 16>;
+            layers = <0>;
+        };
+
+        shortcatcombo {
+            bindings = <&shortcat>;
+            key-positions = <18 16>;
+            layers = <0>;
+        };
+    };
 
     macros {
         up_dir: up_dir {
@@ -168,6 +237,13 @@
             #binding-cells = <0>;
             bindings = <&kp DOT &kp DOT &kp FSLH>;
             label = "UP_DIR";
+        };
+
+        shortcat: shortcat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(SPACE)>;
+            label = "SHORTCAT";
         };
     };
 
@@ -194,19 +270,19 @@
 
         symbol {
             bindings = <
-&kp GRAVE    &kp LESS_THAN      &kp GREATER_THAN  &kp CARET     &kp DOLLAR  &kp PERIOD        &kp AMPS   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp COLON    &none      &trans
-&kp RS(TAB)  &kp DOUBLE_QUOTES  &kp MINUS         &kp PLUS      &kp EQUAL   &kp TILDE         &kp COLON  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT  &kp SQT    &none
-&trans       &kp EXCLAMATION    &kp BACKSLASH     &kp ASTERISK  &kp PIPE    &up_dir           &kp HASH   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AT_SIGN  &kp SLASH  &trans
-                                                  &kp TAB       &mo 4       &kp UNDERSCORE    &trans     &trans                &trans
+&kp GRAVE    &kp LESS_THAN      &kp LESS_THAN  &kp GREATER_THAN  &kp DOLLAR  &kp PERIOD        &kp AMPS  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none        &trans
+&kp RS(TAB)  &kp DOUBLE_QUOTES  &kp MINUS      &kp PLUS          &kp EQUAL   &kp TILDE         &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT  &none
+&trans       &kp EXCLAMATION    &kp BACKSLASH  &kp ASTERISK      &kp LCTRL   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &trans
+                                               &kp TAB           &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
             >;
         };
 
         sys_layer {
             bindings = <
-&bootloader  &bt BT_CLR_ALL  &trans  &trans      &trans         &sys_reset       &sys_reset  &trans  &trans  &trans  &trans  &bootloader
-&trans       &trans          &trans  &trans      &none          &trans           &trans      &trans  &trans  &trans  &trans  &trans
-&none        &trans          &trans  &trans      &trans         &bt BT_CLR       &trans      &trans  &trans  &trans  &trans  &trans
-                                     &bt BT_NXT  &bt BT_DISC 0  &bt BT_DISC 1    &trans      &trans  &trans
+&bootloader  &bt BT_CLR_ALL  &trans  &trans      &trans         &sys_reset       &sys_reset    &trans        &trans        &trans  &trans  &bootloader
+&trans       &trans          &trans  &trans      &none          &trans           &trans        &trans        &trans        &trans  &trans  &trans
+&none        &trans          &trans  &trans      &trans         &bt BT_CLR       &trans        &trans        &trans        &trans  &trans  &trans
+                                     &bt BT_NXT  &bt BT_DISC 0  &bt BT_DISC 1    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
             >;
         };
 
