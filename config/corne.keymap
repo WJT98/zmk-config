@@ -164,41 +164,6 @@
     combos {
         compatible = "zmk,combos";
 
-        lb {
-            bindings = <&kp LEFT_BRACE>;
-            key-positions = <19 15>;
-            layers = <0>;
-        };
-
-        lp {
-            bindings = <&kp LEFT_PARENTHESIS>;
-            key-positions = <19 16>;
-        };
-
-        lbrac {
-            bindings = <&kp LEFT_BRACKET>;
-            key-positions = <14 19>;
-            layers = <0>;
-        };
-
-        rp {
-            bindings = <&kp RIGHT_PARENTHESIS>;
-            key-positions = <16 20>;
-            layers = <0>;
-        };
-
-        rb {
-            bindings = <&kp RIGHT_BRACE>;
-            key-positions = <15 20>;
-            layers = <0>;
-        };
-
-        rbr {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <14 20>;
-            layers = <0>;
-        };
-
         dquote {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <19 20>;
@@ -207,14 +172,14 @@
 
         under {
             bindings = <&kp UNDERSCORE>;
-            key-positions = <7 8>;
+            key-positions = <16 20>;
             require-prior-idle-ms = <0>;
             layers = <0>;
         };
 
         hyp {
             bindings = <&kp MINUS>;
-            key-positions = <4 3>;
+            key-positions = <16 19>;
             layers = <0>;
         };
 
@@ -245,6 +210,13 @@
             bindings = <&kp LA(SPACE)>;
             label = "SHORTCAT";
         };
+
+        screenshot: screenshot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LS(NUMBER_4))>;
+            label = "SCREENSHOT";
+        };
     };
 
     keymap {
@@ -252,10 +224,10 @@
 
         default_layer {
             bindings = <
-&kp SQT         &kp Q  &kp W  &kp E         &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P               &kp TILDE
-&mo 1           &kp A  &kp S  &kp D         &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &mt LGUI SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C         &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH            &kp LEFT_SHIFT
-                              &kp LEFT_ALT  &lt 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
+&kp SQT         &kp Q  &kp W  &kp E             &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P               &kp TILDE
+&mo 1           &kp A  &kp S  &kp D             &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &mt LGUI SEMICOLON  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C             &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH            &kp LEFT_SHIFT
+                              &mt LEFT_ALT TAB  &lt 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
             >;
         };
 
@@ -272,8 +244,8 @@
             bindings = <
 &kp GRAVE    &kp LESS_THAN      &kp LESS_THAN  &kp GREATER_THAN  &kp DOLLAR  &kp PERIOD        &kp AMPS  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none        &trans
 &kp RS(TAB)  &kp DOUBLE_QUOTES  &kp MINUS      &kp PLUS          &kp EQUAL   &kp TILDE         &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT  &none
-&trans       &kp EXCLAMATION    &kp BACKSLASH  &kp ASTERISK      &kp LCTRL   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &trans
-                                               &kp TAB           &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
+&screenshot  &kp EXCLAMATION    &kp BACKSLASH  &kp ASTERISK      &kp CARET   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &trans
+                                               &kp LS(TAB)       &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
             >;
         };
 
