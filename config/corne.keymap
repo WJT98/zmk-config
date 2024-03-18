@@ -64,9 +64,9 @@
 //visualize keymap at https://nickcoutsos.github.io/keymap-editor/
 
 &lt {
-    flavor = "tap-unless-interrupted";
-    tapping-term-ms = <80>;
-    quick-tap-ms = <80>;
+    flavor = "hold-preferred";
+    tapping-term-ms = <120>;
+    quick-tap-ms = <120>;
 };
 
 / {
