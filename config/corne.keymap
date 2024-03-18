@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
@@ -65,9 +64,9 @@
 //visualize keymap at https://nickcoutsos.github.io/keymap-editor/
 
 &lt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <100>;
-    quick-tap-ms = <100>;
+    flavor = "tap-unless-interrupted";
+    tapping-term-ms = <80>;
+    quick-tap-ms = <80>;
 };
 
 / {
@@ -224,28 +223,28 @@
 
         default_layer {
             bindings = <
-&kp SQT         &kp Q  &kp W  &kp E             &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P               &kp TILDE
-&mo 1           &kp A  &kp S  &kp D             &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &mt LGUI SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C             &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH            &kp LEFT_SHIFT
+&kp SQT         &kp Q  &kp W  &kp E             &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P          &kp TILDE
+&mo 1           &kp A  &kp S  &kp D             &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &kp SEMICOLON  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &kp X  &kp C             &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH       &kp LEFT_SHIFT
                               &mt LEFT_ALT TAB  &lt 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
             >;
         };
 
         nav_layer {
             bindings = <
-&kp LS(LA(PERIOD))  &mkp MCLK  &mkp LCLK         &kp LC(LA(A))       &mkp RCLK      &kp LA(LC(U))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN   &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &none
-&kp LS(LA(V))       &mkp LCLK  &kp LA(LC(G))     &kp LC(LA(B))       &kp LC(LA(C))  &kp LA(LC(O))    &kp LEFT              &kp DOWN              &kp UP_ARROW   &kp RIGHT        &kp LEFT_SHIFT    &none
-&mo 3               &mkp RCLK  &kp LS(LEFT_ALT)  &kp LA(LEFT_SHIFT)  &kp LA(LCTRL)  &kp LA(LC(I))    &mkp LCLK             &kp LS(LG(U))         &kp LS(LG(I))  &kp LS(LG(O))    &mkp RCLK         &mkp MCLK
-                                                 &kp LS(LA(N))       &kp ESCAPE     &kp ENTER        &none                 &mo 5                 &none
+&kp LS(LA(PERIOD))  &mkp MCLK  &mkp LCLK         &kp LC(LA(A))       &mkp RCLK      &none            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LA(LC(U))
+&kp LS(LA(V))       &mkp LCLK  &kp LA(LC(G))     &kp LC(LA(B))       &kp LC(LA(C))  &none            &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LA(LC(O))
+&mo 3               &mkp RCLK  &kp LS(LEFT_ALT)  &kp LA(LEFT_SHIFT)  &kp LA(LCTRL)  &none            &mkp LCLK             &none                 &none         &none            &mkp RCLK         &kp LA(LC(I))
+                                                 &kp LS(LG(U))       &kp LS(LG(I))  &kp LG(LS(O))    &none                 &mo 5                 &none
             >;
         };
 
         symbol {
             bindings = <
-&kp GRAVE    &kp LESS_THAN      &kp LESS_THAN  &kp GREATER_THAN  &kp DOLLAR  &kp PERIOD        &kp AMPS  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none        &trans
-&kp RS(TAB)  &kp DOUBLE_QUOTES  &kp MINUS      &kp PLUS          &kp EQUAL   &kp TILDE         &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT  &none
-&screenshot  &kp EXCLAMATION    &kp BACKSLASH  &kp ASTERISK      &kp CARET   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SLASH    &trans
-                                               &kp LS(TAB)       &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
+&kp GRAVE    &kp GRAVE        &kp LESS_THAN  &kp GREATER_THAN  &kp DOLLAR  &kp PERIOD        &kp AMPS  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none         &trans
+&kp RS(TAB)  &kp EXCLAMATION  &kp MINUS      &kp PLUS          &kp EQUAL   &kp TILDE         &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT   &none
+&screenshot  &kp EXCLAMATION  &kp BACKSLASH  &kp ASTERISK      &kp CARET   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &trans
+                                             &kp LS(TAB)       &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
             >;
         };
 
@@ -286,3 +285,4 @@
         };
     };
 };
+
