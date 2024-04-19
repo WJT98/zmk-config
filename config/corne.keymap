@@ -7,59 +7,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
 
 #define DEFAULT 0
 #define RAISE   1
 #define NUM     2
 
 #pragma once
-
-#define LT0  5  // left-top row
-#define LT1  4
-#define LT2  3
-#define LT3  2
-#define LT4  1
-#define LT5  0
-#define RT0  6  // right-top row
-#define RT1  7
-#define RT2  8
-#define RT3  9
-#define RT4 10
-#define RT5 11
-#define LM0 17  // left-middle row
-#define LM1 16
-#define LM2 15
-#define LM3 14
-#define LM4 13
-#define LM5 12
-#define RM0 18  // right-middle row
-#define RM1 19
-#define RM2 20
-#define RM3 21
-#define RM4 22
-#define RM5 23
-#define LB0 29  // left-bottom row
-#define LB1 28
-#define LB2 27
-#define LB3 26
-#define LB4 25
-#define LB5 24
-#define RB0 30  // right-bottom row
-#define RB1 31
-#define RB2 32
-#define RB3 33
-#define RB4 34
-#define RB5 35
-#define LH0 38  // left thumb keys
-#define LH1 37
-#define LH2 36
-#define RH0 39  // right thumb keys
-#define RH1 40
-#define RH2 41
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
 //visualize keymap at https://nickcoutsos.github.io/keymap-editor/
 
@@ -79,58 +32,6 @@
             quick-tap-ms = <0>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
-        };
-
-        hml: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <180>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <80>;
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
-        };
-
-        hmr: hold_tapr {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <180>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
-        };
-
-        hmrl: hold_taprl {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <180>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            bindings = <&mo>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_R THUMBS>;
-            hold-trigger-on-release;
-        };
-
-        hmll: hold_tapll {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <180>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            bindings = <&mo>, <&kp>;
-
-            hold-trigger-key-positions = <KEYS_L THUMBS>;
-            hold-trigger-on-release;
         };
 
         mytap: mytap {
@@ -190,7 +91,7 @@
 
         shortcatcombo {
             bindings = <&shortcat>;
-            key-positions = <18 16>;
+            key-positions = <16 19>;
             layers = <0>;
         };
     };
@@ -201,6 +102,8 @@
             #binding-cells = <0>;
             bindings = <&kp DOT &kp DOT &kp FSLH>;
             label = "UP_DIR";
+            wait-ms = <1>;
+            tap-ms = <1>;
         };
 
         shortcat: shortcat {
@@ -216,6 +119,56 @@
             bindings = <&kp LG(LS(NUMBER_4))>;
             label = "SCREENSHOT";
         };
+
+        mac_next_word: mac_next_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(RIGHT)>;
+            label = "MAC_NEXT_WORD";
+            wait-ms = <1>;
+            tap-ms = <1>;
+        };
+
+        mac_prev_word: mac_prev_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LEFT)>;
+            label = "MAC_PREV_WORD";
+            wait-ms = <1>;
+            tap-ms = <1>;
+        };
+
+        line_before: line_before {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp UP_ARROW &kp END &kp ENTER>;
+            label = "LINE_BEFORE";
+            wait-ms = <1>;
+            tap-ms = <1>;
+        };
+
+        cur_line: cur_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI &kp LEFT_SHIFT>,
+                <&macro_tap>,
+                <&kp LEFT &kp RIGHT>,
+                <&macro_release>,
+                <&kp LEFT_GUI &kp LEFT_SHIFT>;
+
+            label = "LINE_BEFORE";
+            wait-ms = <1>;
+            tap-ms = <1>;
+        };
+
+        alfred: alfred {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(SPACE)>;
+            label = "ALFRED";
+        };
     };
 
     keymap {
@@ -223,28 +176,28 @@
 
         default_layer {
             bindings = <
-&kp SQT         &kp Q  &kp W  &kp E             &kp R         &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P          &kp TILDE
-&mo 1           &kp A  &kp S  &kp D             &hml LCTRL F  &kp G        &kp H          &hmr LGUI J     &kp K      &kp L    &kp SEMICOLON  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &kp X  &kp C             &kp V         &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH       &kp LEFT_SHIFT
-                              &mt LEFT_ALT TAB  &lt 4 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &mo 1
+&kp SQT  &kp Q  &kp W  &kp E      &kp R               &kp T        &kp Y          &kp U           &kp I         &kp O    &kp P          &kp TILDE
+&mo 1    &kp A  &kp S  &kp D      &kp F               &kp G        &kp H          &kp J           &kp K         &kp L    &kp SEMICOLON  &kp LEFT_GUI
+&mo 5    &kp Z  &kp X  &kp C      &kp V               &kp B        &kp N          &kp M           &kp COMMA     &kp DOT  &kp FSLH       &mo 5
+                       &kp LCTRL  &mt LEFT_SHIFT ESC  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &kp LEFT_ALT
             >;
         };
 
         nav_layer {
             bindings = <
-&kp LS(LA(PERIOD))  &mkp MCLK  &mkp LCLK         &kp LC(LA(A))       &mkp RCLK      &none            &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LA(LC(U))
-&kp LS(LA(V))       &mkp LCLK  &kp LA(LC(G))     &kp LC(LA(B))       &kp RCTRL      &none            &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LA(LC(O))
-&mo 3               &mkp RCLK  &kp LS(LEFT_ALT)  &kp LA(LEFT_SHIFT)  &kp LA(LCTRL)  &none            &none                 &kp HOME              &kp END       &none            &none             &kp LA(LC(I))
-                                                 &kp LS(LG(U))       &kp LS(LG(I))  &kp LG(LS(O))    &kp DELETE            &kp END               &none
+&none  &kp LS(LG(U))  &kp LS(LG(I))  &kp LS(LG(O))   &none           &kp LA(LC(U))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE    &none
+&none  &none          &kp LEFT_GUI   &kp LEFT_ALT    &kp RCTRL       &kp LA(LC(O))    &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LG(LEFT_SHIFT)  &none
+&mo 3  &none          &none          &none           &none           &kp LC(LA(I))    &none                 &kp HOME              &kp END       &none            &none               &none
+                                     &kp LEFT_SHIFT  &mac_prev_word  &line_before     &kp DELETE            &mac_next_word        &none
             >;
         };
 
         symbol {
             bindings = <
-&kp GRAVE    &kp GRAVE        &kp LESS_THAN  &kp GREATER_THAN  &kp DOLLAR  &kp PERIOD        &kp AMPS  &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &none         &trans
-&kp RS(TAB)  &kp EXCLAMATION  &kp MINUS      &kp PLUS          &kp EQUAL   &kp TILDE         &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT   &none
-&screenshot  &kp EXCLAMATION  &kp BACKSLASH  &kp ASTERISK      &kp CARET   &up_dir           &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &trans
-                                             &kp LS(TAB)       &mo 4       &kp UNDERSCORE    &trans    &trans       &kp LEFT_GUI
+&kp GRAVE    &kp GRAVE             &kp LESS_THAN  &kp GREATER_THAN  &kp AMPERSAND  &none        &none     &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp GRAVE     &trans
+&none        &kp EXCLAMATION       &kp MINUS      &kp PLUS          &kp EQUAL      &kp TILDE    &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT   &none
+&screenshot  &kp NON_US_BACKSLASH  &kp SLASH      &kp ASTERISK      &kp CARET      &up_dir      &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &trans
+                                                  &kp LS(TAB)       &kp TAB        &alfred      &trans    &trans       &kp LEFT_GUI
             >;
         };
 
@@ -276,13 +229,6 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        activate_sys {
-            if-layers = <2 4>;
-            then-layer = <5>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
 
