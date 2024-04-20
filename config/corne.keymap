@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
@@ -176,10 +177,10 @@
 
         default_layer {
             bindings = <
-&kp LEFT_GUI  &kp Q  &kp W  &kp E  &kp R               &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P          &kp TILDE
-&mo 1         &kp A  &kp S  &kp D  &kp F               &kp G        &kp H          &kp J           &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
-&kp LEFT_ALT  &kp Z  &kp X  &kp C  &kp V               &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH       &mo 5
-                            &mo 5  &mt LEFT_SHIFT ESC  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &kp LCTRL
+&kp LEFT_GUI  &kp Q  &kp W  &kp E           &kp R            &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P          &kp TILDE
+&mo 1         &kp A  &kp S  &kp D           &kp F            &kp G        &kp H          &kp J           &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
+&kp LEFT_ALT  &kp Z  &kp X  &kp C           &kp V            &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH       &mo 5
+                            &kp LEFT_SHIFT  &mytap 5 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &kp LCTRL
             >;
         };
 
@@ -231,4 +232,3 @@
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 };
-
