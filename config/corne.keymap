@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2020 The ZMK Contributors
  *
@@ -95,6 +94,11 @@
             key-positions = <16 19>;
             layers = <0>;
         };
+
+        shift {
+            bindings = <&kp LEFT_SHIFT>;
+            key-positions = <37 40>;
+        };
     };
 
     macros {
@@ -177,19 +181,19 @@
 
         default_layer {
             bindings = <
-&kp LEFT_GUI  &kp Q  &kp W  &kp E           &kp R            &kp T        &kp Y          &kp U           &kp I      &kp O    &kp P          &kp TILDE
-&mo 1         &kp A  &kp S  &kp D           &kp F            &kp G        &kp H          &kp J           &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
-&kp LEFT_ALT  &kp Z  &kp X  &kp C           &kp V            &kp B        &kp N          &kp M           &kp COMMA  &kp DOT  &kp FSLH       &mo 5
-                            &kp LEFT_SHIFT  &mytap 5 ESCAPE  &kp ENTER    &kp BACKSPACE  &mytap 2 SPACE  &kp LCTRL
+&kp LEFT_GUI  &kp Q  &kp W  &kp E             &kp R               &kp T        &kp Y          &kp U               &kp I      &kp O    &kp P          &kp TILDE
+&mo 1         &kp A  &kp S  &kp D             &kp F               &kp G        &kp H          &kp J               &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
+&kp LEFT_ALT  &kp Z  &kp X  &kp C             &kp V               &kp B        &kp N          &kp M               &kp COMMA  &kp DOT  &kp FSLH       &mo 5
+                            &mt LEFT_GUI TAB  &shiftesc 5 ESCAPE  &kp ENTER    &kp BACKSPACE  &shiftesc 2 ESCAPE  &kp LCTRL
             >;
         };
 
         nav_layer {
             bindings = <
-&screenshot  &kp LS(LG(U))  &kp LS(LG(I))  &kp LS(LG(O))   &none           &kp LA(LC(U))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE    &none
-&none        &none          &kp LEFT_GUI   &kp LEFT_ALT    &kp RCTRL       &kp LA(LC(O))    &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LG(LEFT_SHIFT)  &none
-&mo 3        &none          &none          &none           &none           &kp LC(LA(I))    &none                 &kp HOME              &kp END       &none            &none               &none
-                                           &kp LEFT_SHIFT  &mac_prev_word  &line_before     &kp DELETE            &mac_next_word        &cur_line
+&screenshot  &kp LS(LG(U))  &kp LS(LG(I))  &kp LS(LG(O))  &none           &kp LA(LC(U))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE    &none
+&none        &none          &kp LEFT_GUI   &kp LEFT_ALT   &kp RCTRL       &kp LA(LC(O))    &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LG(LEFT_SHIFT)  &none
+&mo 3        &none          &none          &none          &none           &kp LC(LA(I))    &none                 &kp HOME              &kp END       &none            &none               &none
+                                           &kp LSHIFT     &mac_prev_word  &line_before     &kp DELETE            &mac_next_word        &cur_line
             >;
         };
 
@@ -198,7 +202,7 @@
 &kp GRAVE  &kp GRAVE        &kp LESS_THAN  &kp GREATER_THAN  &kp AMPERSAND  &none        &none     &kp AT_SIGN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp GRAVE     &trans
 &none      &kp EXCLAMATION  &kp MINUS      &kp PLUS          &kp EQUAL      &kp TILDE    &kp PIPE  &kp COLON    &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PERCENT   &none
 &none      &kp BACKSLASH    &kp SLASH      &kp ASTERISK      &kp CARET      &up_dir      &kp HASH  &kp DOLLAR   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp QUESTION  &trans
-                                           &kp LS(TAB)       &kp TAB        &alfred      &trans    &trans       &kp LEFT_GUI
+                                           &kp LS(TAB)       &mo 4          &alfred      &trans    &trans       &kp LEFT_GUI
             >;
         };
 
@@ -222,13 +226,14 @@
 
         num_layer {
             bindings = <
-&none  &none  &kp H  &kp K  &kp J      &kp L        &none     &kp N7        &kp N8        &kp N9        &none       &trans
-&none  &none  &none  &none  &none      &none        &none     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0      &trans
-&none  &none  &none  &none  &kp COMMA  &kp MINUS    &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans
-                     &none  &kp SPACE  &kp EQUAL    &kp BSPC  &kp SPACE     &kp DOLLAR
+&none  &none      &kp H      &kp K  &kp J      &kp L        &none     &kp N7        &kp N8        &kp N9        &none       &trans
+&none  &kp LS(A)  &kp LS(S)  &none  &kp SPACE  &none        &none     &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0      &trans
+&none  &none      &none      &none  &kp COMMA  &kp MINUS    &none     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD  &trans
+                             &none  &kp SPACE  &kp EQUAL    &kp BSPC  &mo 4         &kp DOLLAR
             >;
         };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 };
+
