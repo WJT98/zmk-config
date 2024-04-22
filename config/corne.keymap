@@ -181,10 +181,10 @@
 
         default_layer {
             bindings = <
-&kp LEFT_GUI  &kp Q  &kp W  &kp E             &kp R               &kp T        &kp Y          &kp U               &kp I      &kp O    &kp P          &kp TILDE
-&mo 1         &kp A  &kp S  &kp D             &kp F               &kp G        &kp H          &kp J               &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
-&kp LEFT_ALT  &kp Z  &kp X  &kp C             &kp V               &kp B        &kp N          &kp M               &kp COMMA  &kp DOT  &kp FSLH       &mo 5
-                            &mt LEFT_GUI TAB  &shiftesc 5 ESCAPE  &kp ENTER    &kp BACKSPACE  &shiftesc 2 ESCAPE  &kp LCTRL
+&kp LEFT_GUI  &kp Q  &kp W  &kp E             &kp R               &kp T        &kp Y          &kp U              &kp I      &kp O    &kp P          &kp TILDE
+&mo 1         &kp A  &kp S  &kp D             &kp F               &kp G        &kp H          &kp J              &kp K      &kp L    &kp SEMICOLON  &kp LEFT_GUI
+&kp LEFT_ALT  &kp Z  &kp X  &kp C             &kp V               &kp B        &kp N          &kp M              &kp COMMA  &kp DOT  &kp FSLH       &mo 5
+                            &mt LEFT_GUI TAB  &shiftesc 5 ESCAPE  &kp ENTER    &kp BACKSPACE  &shiftesc 2 SPACE  &kp LCTRL
             >;
         };
 
@@ -220,7 +220,7 @@
 &trans  &kp LS(Q)  &kp LS(W)  &kp LS(E)  &kp LS(R)  &kp LS(T)    &kp LS(Y)  &kp LS(U)  &kp LS(I)   &kp LS(O)   &kp LS(P)      &trans
 &trans  &kp LS(A)  &kp LS(S)  &kp LS(D)  &kp LS(F)  &kp LS(G)    &kp LS(H)  &kp LS(J)  &kp LS(K)   &kp LS(L)   &kp LS(COLON)  &trans
 &trans  &kp LS(Z)  &kp LS(X)  &kp LS(C)  &kp LS(V)  &kp LS(B)    &kp LS(N)  &kp LS(M)  &kp LS(LT)  &kp LS(GT)  &kp LS(QMARK)  &trans
-                              &trans     &trans     &trans       &trans     &mo 2      &trans
+                              &trans     &trans     &trans       &trans     &none      &trans
             >;
         };
 
