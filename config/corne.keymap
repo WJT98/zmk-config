@@ -65,7 +65,7 @@
         compatible = "zmk,combos";
 
         dquote {
-            bindings = <&kp DOUBLE_QUOTES>;
+            bindings = <&kp TAB>;
             key-positions = <19 20>;
             layers = <0>;
         };
@@ -108,6 +108,16 @@
         star {
             bindings = <&kp ASTERISK>;
             key-positions = <15 20>;
+        };
+
+        par {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <19 22>;
+        };
+
+        brac {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <21 22>;
         };
     };
 
@@ -158,8 +168,8 @@
             #binding-cells = <0>;
             bindings = <&kp UP_ARROW &kp END &kp ENTER>;
             label = "LINE_BEFORE";
-            wait-ms = <15>;
-            tap-ms = <15>;
+            wait-ms = <50>;
+            tap-ms = <25>;
         };
 
         cur_line: cur_line {
@@ -200,10 +210,10 @@
 
         nav_layer {
             bindings = <
-&screenshot  &kp LS(LG(U))  &kp LS(LG(I))  &kp LS(LG(O))  &none           &kp LA(LC(U))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &none
-&none        &kp LG(A)      &kp LEFT_GUI   &kp LCTRL      &kp LEFT_ALT    &kp LA(LC(O))    &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &none
-&mo 4        &none          &kp LG(X)      &kp LG(C)      &kp LG(V)       &kp LC(LA(I))    &none                 &kp HOME              &kp END       &none            &none             &none
-                                           &kp LSHIFT     &mac_prev_word  &line_before     &kp DELETE            &mac_next_word        &cur_line
+&screenshot  &kp LG(W)  &line_before  &cur_line       &kp LG(R)     &kp LG(LS(T))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LC(LA(U))
+&none        &kp LG(A)  &kp LEFT_GUI  &kp LEFT_SHIFT  &kp LEFT_ALT  &none            &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LC(LA(O))
+&mo 4        &kp LG(Z)  &kp LG(X)     &kp LG(C)       &kp LG(V)     &none            &none                 &kp HOME              &kp END       &none            &none             &kp LA(LC(I))
+                                      &kp RCTRL       &kp HOME      &line_before     &kp DELETE            &kp END               &cur_line
             >;
         };
 
@@ -219,7 +229,7 @@
         layer_6 {
             bindings = <
 &kp COLON  &kp BACKSLASH  &kp EXCLAMATION   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AMPS     &kp AT      &kp N7        &kp N8        &kp N9        &kp GRAVE    &none
-&kp TILDE  &kp PLUS       &kp MINUS         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET    &kp DOLLAR  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0       &none
+&kp TILDE  &kp PLUS       &kp MINUS         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET    &kp DOLLAR  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp N0       &kp DOUBLE_QUOTES
 &none      &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PIPE     &kp HASH    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERCENT  &none
                                             &kp SPACE             &kp EQUAL              &kp ENTER    &trans      &trans        &trans
             >;
