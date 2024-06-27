@@ -85,7 +85,7 @@
 
         quote {
             bindings = <&kp SQT>;
-            key-positions = <15 16>;
+            key-positions = <16 14>;
             layers = <0>;
         };
 
@@ -107,6 +107,11 @@
         brac {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <21 22>;
+        };
+
+        equal {
+            bindings = <&kp KP_EQUAL>;
+            key-positions = <16 15>;
         };
     };
 
