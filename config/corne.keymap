@@ -102,16 +102,19 @@
         par {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <19 20>;
+            layers = <0>;
         };
 
         brac {
-            bindings = <&kp LEFT_BRACKET>;
+            bindings = <&mt LEFT_GUI LEFT_BRACKET>;
             key-positions = <21 22>;
+            layers = <0>;
         };
 
         equal {
-            bindings = <&kp KP_EQUAL>;
+            bindings = <&lt 1 EQUAL>;
             key-positions = <16 15>;
+            layers = <0>;
         };
     };
 
@@ -123,13 +126,6 @@
             label = "UP_DIR";
             wait-ms = <1>;
             tap-ms = <1>;
-        };
-
-        shortcat: shortcat {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(SPACE)>;
-            label = "SHORTCAT";
         };
 
         screenshot: screenshot {
@@ -172,13 +168,6 @@
             wait-ms = <1>;
             tap-ms = <1>;
         };
-
-        alfred: alfred {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(SPACE)>;
-            label = "ALFRED";
-        };
     };
 
     keymap {
@@ -186,19 +175,19 @@
 
         default_layer {
             bindings = <
-&kp LEFT_GUI  &kp Q  &kp W  &kp E                 &kp R                  &kp T        &kp Y          &kp U               &kp I          &kp O    &kp P      &none
-&mo 1         &kp A  &kp S  &kp D                 &kp F                  &kp G        &kp H          &kp J               &kp K          &kp L    &mo 2      &kp LEFT_GUI
-&kp LEFT_ALT  &kp Z  &kp X  &kp C                 &kp V                  &kp B        &kp N          &kp M               &kp COMMA      &kp DOT  &kp SLASH  &kp LEFT_ALT
-                            &mt LEFT_ALT LS(TAB)  &mt LEFT_SHIFT ESCAPE  &kp ENTER    &kp BACKSPACE  &mt LEFT_GUI SPACE  &mt LCTRL TAB
+&trans  &kp Q  &kp W  &kp E                 &kp R                  &kp T        &kp Y          &kp U      &kp I      &kp O    &kp P      &none
+&trans  &kp A  &kp S  &kp D                 &kp F                  &kp G        &kp H          &kp J      &kp K      &kp L    &mo 2      &trans
+&trans  &kp Z  &kp X  &kp C                 &kp V                  &kp B        &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH  &trans
+                      &mt LEFT_ALT LS(TAB)  &mt LEFT_SHIFT ESCAPE  &kp ENTER    &kp BACKSPACE  &kp SPACE  &kp LCTRL
             >;
         };
 
         nav_layer {
             bindings = <
-&screenshot  &kp LG(W)  &none         &cur_line       &kp LG(R)     &kp LG(LS(T))    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LC(LA(U))
-&none        &kp LG(A)  &kp LEFT_GUI  &kp LEFT_SHIFT  &kp LEFT_ALT  &none            &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LC(LA(O))
-&mo 3        &kp LG(Z)  &kp LG(X)     &kp LG(C)       &kp LG(V)     &none            &none                 &kp HOME              &kp END       &none            &none             &kp LA(LC(I))
-                                      &kp RCTRL       &kp HOME      &none            &kp DELETE            &kp END               &cur_line
+&screenshot  &none   &none   &trans     &trans    &trans    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LC(LA(U))
+&none        &trans  &trans  &trans     &trans    &none     &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LC(LA(O))
+&mo 3        &trans  &trans  &trans     &trans    &none     &none                 &kp HOME              &kp END       &none            &none             &kp LA(LC(I))
+                             &kp RCTRL  &kp LGUI  &none     &kp DELETE            &kp LEFT_ALT          &cur_line
             >;
         };
 
