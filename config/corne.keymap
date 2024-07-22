@@ -64,12 +64,6 @@
     combos {
         compatible = "zmk,combos";
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <19 22>;
-            layers = <0>;
-        };
-
         under {
             bindings = <&kp UNDERSCORE>;
             key-positions = <16 20>;
@@ -78,7 +72,7 @@
         };
 
         hyp {
-            bindings = <&kp MINUS>;
+            bindings = <&kp EQUAL>;
             key-positions = <16 19>;
             layers = <0>;
         };
@@ -95,24 +89,24 @@
         };
 
         semicol {
-            bindings = <&kp SEMICOLON>;
+            bindings = <&kp MINUS>;
             key-positions = <15 20>;
         };
 
         par {
-            bindings = <&kp LEFT_PARENTHESIS>;
+            bindings = <&kp ESCAPE>;
             key-positions = <19 20>;
             layers = <0>;
         };
 
         brac {
-            bindings = <&mt LEFT_GUI LEFT_BRACKET>;
+            bindings = <&mt LEFT_GUI ASTERISK>;
             key-positions = <21 22>;
             layers = <0>;
         };
 
         equal {
-            bindings = <&lt 1 EQUAL>;
+            bindings = <&mo 1>;
             key-positions = <16 15>;
             layers = <0>;
         };
@@ -175,10 +169,10 @@
 
         default_layer {
             bindings = <
-&trans  &kp Q  &kp W  &kp E                 &kp R                  &kp T        &kp Y          &kp U      &kp I      &kp O    &kp P      &none
-&trans  &kp A  &kp S  &kp D                 &kp F                  &kp G        &kp H          &kp J      &kp K      &kp L    &mo 2      &trans
-&trans  &kp Z  &kp X  &kp C                 &kp V                  &kp B        &kp N          &kp M      &kp COMMA  &kp DOT  &kp SLASH  &trans
-                      &mt LEFT_ALT LS(TAB)  &mt LEFT_SHIFT ESCAPE  &kp ENTER    &kp BACKSPACE  &kp SPACE  &kp LCTRL
+&trans  &kp Q  &kp W  &kp E         &kp R                 &kp T        &kp Y          &kp U         &kp I      &kp O    &kp P          &none
+&trans  &kp A  &kp S  &kp D         &kp F                 &kp G        &kp H          &kp J         &kp K      &kp L    &kp SEMICOLON  &trans
+&trans  &kp Z  &kp X  &kp C         &kp V                 &kp B        &kp N          &kp M         &kp COMMA  &kp DOT  &kp SLASH      &trans
+                      &kp LEFT_ALT  &mt LEFT_SHIFT SPACE  &kp ENTER    &kp BACKSPACE  &mytap 2 TAB  &kp LCTRL
             >;
         };
 
@@ -186,17 +180,17 @@
             bindings = <
 &screenshot  &none   &none   &trans     &trans    &trans    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_PLAY_PAUSE  &kp LC(LA(U))
 &none        &trans  &trans  &trans     &trans    &none     &kp LEFT              &kp DOWN              &kp UP_ARROW  &kp RIGHT        &kp LEFT_SHIFT    &kp LC(LA(O))
-&mo 3        &trans  &trans  &trans     &trans    &none     &none                 &kp HOME              &kp END       &none            &none             &kp LA(LC(I))
+&mo 3        &trans  &trans  &trans     &trans    &none     &none                 &kp HOME              &kp END       &none            &screenshot       &kp LA(LC(I))
                              &kp RCTRL  &kp LGUI  &none     &kp DELETE            &kp LEFT_ALT          &cur_line
             >;
         };
 
         layer_6 {
             bindings = <
-&trans  &kp BACKSLASH  &kp EXCLAMATION   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AMPS     &kp AT        &kp N7        &kp N8             &kp N9        &trans       &none
-&trans  &kp PLUS       &kp MINUS         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET    &kp DOLLAR    &kp NUMBER_4  &kp N5             &kp NUMBER_6  &trans       &trans
-&none   &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PIPE     &kp HASH      &kp NUMBER_1  &kp NUMBER_2       &kp NUMBER_3  &kp PERCENT  &none
-                                         &kp TILDE             &kp KP_EQUAL           &kp GRAVE    &kp ASTERISK  &kp N0        &kp DOUBLE_QUOTES
+&trans  &kp BACKSLASH  &kp EXCLAMATION   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp AMPS     &kp AT        &kp N7        &kp N8             &kp N9        &kp DOUBLE_QUOTES  &none
+&trans  &kp PLUS       &kp MINUS         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp CARET    &kp DOLLAR    &kp NUMBER_4  &kp N5             &kp NUMBER_6  &kp N0             &trans
+&none   &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp PIPE     &kp HASH      &kp NUMBER_1  &kp NUMBER_2       &kp NUMBER_3  &kp PERCENT        &none
+                                         &kp TILDE             &kp KP_EQUAL           &kp GRAVE    &kp ASTERISK  &trans        &kp DOUBLE_QUOTES
             >;
         };
 
